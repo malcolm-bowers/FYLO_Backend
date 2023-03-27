@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Battalion List</h1>
+  {% if battalion_list %}
+<ul>
+    {% for battalion in battalion_list %}
+    <li>
+        <a href="{{ battalion.get_absolute_url }}">{{ battalion.name }}</a> ({{battalion.base.all|join:", "}})
+    </li>
+    {% endfor %}
+</ul>
+  {% else %}
+<p>There are no battalions in the database.</p>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Name: {{ base.name }}</h1>
+
+<p><strong>Location:</strong> {{ base.location }}</p>
+<p><strong>Battalions:</strong></p>
+{% if base.battalion_set %}
+<ul>
+    {% for battalion in base.battalion_set.all %}
+    <li>
+        <a href="{{ battalion.get_absolute_url }}">{{ battalion.name }}</a>
+    </li>
+    {% endfor %}
+</ul>
+  {% else %}
+<p>There are no battalions in the database.</p>
+  {% endif %}
+{% endblock %}

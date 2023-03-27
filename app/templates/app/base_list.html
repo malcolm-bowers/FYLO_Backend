@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Base List</h1>
+  {% if base_list %}
+<ul>
+    {% for base in base_list %}
+    <li>
+        <a href="{{ base.get_absolute_url }}">{{ base.name }}</a> ({{base.location}})
+    </li>
+    {% endfor %}
+</ul>
+  {% else %}
+<p>There are no bases in the database.</p>
+  {% endif %}
+{% endblock %}
