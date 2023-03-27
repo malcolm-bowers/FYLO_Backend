@@ -1,9 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import User,  Base, Command, Brigade, Battalion, Company
-
-
-admin.site.register(User, UserAdmin)
+from .models import  Base, Command, Brigade, Battalion, Company
 
 # Register your models here.
 #admin.site.register(Base)
