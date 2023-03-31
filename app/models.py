@@ -4,6 +4,7 @@ Definition of models.
 
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -70,3 +71,12 @@ class Company(models.Model):
     def get_absolute_url(self):
         """Returns the URL to access a detail record for this Company."""
         return reverse('company-detail', args=[str(self.id)])
+
+class UserProfile(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, unique=True)
+    base = models.ForeignKey(Base, on_delete=models.SET_NULL, null=True)
+    command = models.ForeignKey(Command, on_delete=models.SET_NULL, null=True)
+    brigade = models.ForeignKey(Brigade, on_delete=models.SET_NULL, null=True)
+    battalion = models.ForeignKey(Battalion, on_delete=models.SET_NULL, null=True)
+    company = models.ForeignKey(Company, on_delete=models.SET_NULL, null=True)
+

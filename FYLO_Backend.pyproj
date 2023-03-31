@@ -68,6 +68,7 @@
     <Content Include="app\templates\app\base_list.html" />
     <Content Include="app\templates\app\battalion_detail.html" />
     <Content Include="app\templates\app\battalion_list.html" />
+    <Content Include="app\templates\app\userprofile_form.html" />
     <Content Include="app\templates\base_generic.html" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />

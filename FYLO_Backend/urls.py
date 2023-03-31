@@ -21,4 +21,5 @@ urlpatterns = [
     path('battalion/<int:pk>', views.BattalionDetailView.as_view(), name='battalion-detail'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
+    path('userprofile/<int:pk>/update/', views.UserProfileUpdate.as_view(), name='userprofile-update'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -7,6 +7,8 @@ from django.http import HttpRequest
 from django.shortcuts import render
 from .models import Base, Command, Brigade, Battalion, Company
 from django.views import generic
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
 
 
 # Create your views here.
@@ -44,3 +46,11 @@ class BattalionListView(generic.ListView):
 
 class BattalionDetailView(generic.DetailView):
     model = Battalion
+
+
+from app.models import UserProfile
+
+class UserProfileUpdate(UpdateView):
+    model = UserProfile
+    fields = '__all__'
+    success_url = reverse_lazy('index')
