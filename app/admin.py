@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import  Base, Command, Brigade, Battalion, Company
+
+from .models import  Base, Command, Brigade, Battalion, Company, File
 
 # Register your models here.
 #admin.site.register(Base)
@@ -33,3 +34,9 @@ class CompanyAdmin(admin.ModelAdmin):
     list_display = ('name', 'battalion')
 
 admin.site.register(Company, CompanyAdmin)
+
+class FileAdmin(admin.ModelAdmin):
+    pass
+
+admin.site.register(File, FileAdmin)
+

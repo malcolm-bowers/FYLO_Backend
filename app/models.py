@@ -2,6 +2,7 @@
 Definition of models.
 """
 
+from re import T
 from django.db import models
 from django.urls import reverse
 
@@ -65,8 +66,23 @@ class Company(models.Model):
 
     def __str__(self):
         """String for representing the Model object."""
-        return self.name
+        return (self.name + ", " + self.battalion.name)
 
     def get_absolute_url(self):
         """Returns the URL to access a detail record for this Company."""
         return reverse('company-detail', args=[str(self.id)])
+
+def generate_filename():
+    pass
+
+class File(models.Model):
+    name = models.CharField(max_length=200, help_text='Enter the file name.')
+    file = models.FileField(upload_to="files/%Y/%m%d")
+    base = models.ForeignKey(Base, on_delete=models.CASCADE, null=True, blank=True)
+    command = models.ForeignKey(Command, on_delete=models.CASCADE, null=True, blank=True)
+    brigade = models.ForeignKey(Brigade, on_delete=models.CASCADE, null=True, blank=True)
+    battalion = models.ForeignKey(Battalion, on_delete=models.CASCADE, null=True, blank=True)
+    company = models.ForeignKey(Company, on_delete=models.CASCADE, null=True, blank=True)
+
+    def __str__(self):
+        return self.name

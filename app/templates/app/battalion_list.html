@@ -6,7 +6,7 @@
 <ul>
     {% for battalion in battalion_list %}
     <li>
-        <a href="{{ battalion.get_absolute_url }}">{{ battalion.name }}</a> ({{battalion.base.all|join:", "}})
+        <a href="{{ battalion.get_absolute_url }}">{{ battalion.name }}</a> ({{ battalion.base.all|join:", " }})
     </li>
     {% endfor %}
 </ul>

@@ -8,12 +8,22 @@
 {% if base.battalion_set %}
 <ul>
     {% for battalion in base.battalion_set.all %}
-    <li>
+    <li> 
         <a href="{{ battalion.get_absolute_url }}">{{ battalion.name }}</a>
     </li>
     {% endfor %}
 </ul>
   {% else %}
 <p>There are no battalions in the database.</p>
+  {% endif %}
+<p><strong>References:</strong></p>
+{% if base.file_set %}
+<ul>
+    {% for file in base.file_set.all %}
+    <li>
+        <a href="{{ file.file.url }}">{{ file.name }}</a>
+    </li>
+    {% endfor %}
+</ul>
   {% endif %}
 {% endblock %}

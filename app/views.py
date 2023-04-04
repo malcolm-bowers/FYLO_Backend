@@ -3,10 +3,10 @@ Definition of views.
 """
 
 from datetime import datetime
-from django.http import HttpRequest
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Base, Command, Brigade, Battalion, Company
 from django.views import generic
+from .forms import FileForm
 
 
 # Create your views here.
@@ -44,3 +44,20 @@ class BattalionListView(generic.ListView):
 
 class BattalionDetailView(generic.DetailView):
     model = Battalion
+
+class BrigadeDetailView(generic.DetailView):
+    model = Brigade
+
+
+
+def upload_pdf(request):
+    if request.method == 'POST':
+        form = FileForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    else:
+        form = FileForm()
+    return render(request, 'upload_pdf.html', {
+        'form': form
+    })

@@ -32,6 +32,19 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="accounts\admin.py" />
+    <Compile Include="accounts\apps.py" />
+    <Compile Include="accounts\migrations\__init__.py" />
+    <Compile Include="accounts\models.py" />
+    <Compile Include="accounts\forms.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="accounts\managers.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="accounts\tests.py" />
+    <Compile Include="accounts\views.py" />
+    <Compile Include="accounts\__init__.py" />
     <Compile Include="app\forms.py" />
     <Compile Include="app\models.py" />
     <Compile Include="app\admin.py">
@@ -48,6 +61,10 @@
     <Compile Include="FYLO_Backend\wsgi.py" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="accounts\" />
+    <Folder Include="accounts\migrations\" />
+    <Folder Include="accounts\templates\" />
+    <Folder Include="accounts\templates\accounts\" />
     <Folder Include="app\" />
     <Folder Include="app\migrations\" />
     <Folder Include="app\static\" />
@@ -59,15 +76,20 @@
     <Folder Include="app\templates\" />
     <Folder Include="app\templates\app\" />
     <Folder Include="FYLO_Backend\" />
+    <Folder Include="media\" />
+    <Folder Include="media\files\" />
     <Folder Include="templates\" />
     <Folder Include="templates\registration\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="accounts\templates\accounts\index.html" />
     <Content Include="app\static\css\styles.css" />
     <Content Include="app\templates\app\base_detail.html" />
     <Content Include="app\templates\app\base_list.html" />
     <Content Include="app\templates\app\battalion_detail.html" />
     <Content Include="app\templates\app\battalion_list.html" />
+    <Content Include="app\templates\app\brigade_detail.html" />
+    <Content Include="app\templates\upload_pdf.html" />
     <Content Include="app\templates\base_generic.html" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />
