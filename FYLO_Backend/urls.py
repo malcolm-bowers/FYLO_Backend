@@ -5,7 +5,7 @@ Definition of urls for FYLO_Backend.
 from django.urls import path
 from django.contrib import admin
 from app import views
-from django.urls import include
+from django.urls import include, path
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -20,7 +20,7 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
     path('pdf/upload/', views.upload_pdf, name='upload_pdf'),
-    path('api-auth/', include('rest_framework.urls')),
+    path('api/', include('api.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if settings.DEBUG:

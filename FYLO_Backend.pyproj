@@ -45,6 +45,18 @@
     <Compile Include="accounts\tests.py" />
     <Compile Include="accounts\views.py" />
     <Compile Include="accounts\__init__.py" />
+    <Compile Include="api\serializers.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="api\urls.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="api\views.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="api\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="app\forms.py" />
     <Compile Include="app\models.py" />
     <Compile Include="app\admin.py">
@@ -78,6 +90,7 @@
     <Folder Include="FYLO_Backend\" />
     <Folder Include="media\" />
     <Folder Include="media\files\" />
+    <Folder Include="api\" />
     <Folder Include="templates\" />
     <Folder Include="templates\registration\" />
   </ItemGroup>
