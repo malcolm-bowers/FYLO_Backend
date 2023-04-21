@@ -28,6 +28,7 @@
                     <li>User: {{ user.get_username }}</li>
                     <li>My Base: <a href="{{ user.base.get_absolute_url }}">{{ user.base }}</a></li>
                     <li>My Brigade: <a href="{{user.brigade.get_absolute_url }}">{{ user.brigade }}</a></li>
+                    <li>My Battalion: <a href="{{ user.battalion.get_absolute_url }}">{{ user.battalion }}</a></li>
                     <li><a href="{% url 'logout' %}?next={{ request.path }}">Logout</a></li>
                     {% else %}
                     <li><a href="{% url 'login' %}?next={{ request.path }}">Login</a></li>

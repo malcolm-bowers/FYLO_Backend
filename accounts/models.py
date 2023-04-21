@@ -4,7 +4,7 @@ from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
 from .managers import CustomUserManager
-from app.models import Base, Brigade
+from app.models import Base, Brigade, Battalion
 
 # Create your models here.
 class CustomUser(AbstractBaseUser, PermissionsMixin):
@@ -15,6 +15,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
     base = models.ForeignKey(Base, on_delete=models.RESTRICT, null=True)
     brigade = models.ForeignKey(Brigade, on_delete=models.RESTRICT, null=True)
+    battalion = models.ForeignKey(Battalion, on_delete=models.RESTRICT, null=True)
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
