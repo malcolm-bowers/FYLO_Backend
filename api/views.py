@@ -2,9 +2,9 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework.permissions import AllowAny
 from rest_framework import generics
-from app.models import Base
+from app.models import Base, File
 from accounts.models import CustomUser
-from .serializers import BaseSerializer, UserSerializer
+from .serializers import BaseSerializer, FileSerializer, UserSerializer
 
 @api_view(['GET'])
 def getBase(request):
@@ -30,3 +30,9 @@ class addUser(generics.CreateAPIView):
     queryset = CustomUser.objects.all()
     serializer_class = UserSerializer
     permission_classes = (AllowAny,)
+
+@api_view(['GET'])
+def getFile(request):
+    files = File.objects.all()
+    serializer = FileSerializer(files, many=True)
+    return Response(serializer.data)

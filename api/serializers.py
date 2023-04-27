@@ -1,11 +1,17 @@
 from rest_framework import serializers
-from app.models import Base
+from app.models import Base, File
 from accounts.models import CustomUser
 
+class FileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = File
+        fields = '__all__'
+
 class BaseSerializer(serializers.ModelSerializer):
+    files = FileSerializer(source='file_set', many=True)
     class Meta:
         model = Base
-        fields = '__all__'
+        fields = ('id', 'name', 'location', 'files')
 
 class UserSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
