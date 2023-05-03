@@ -5,13 +5,14 @@ from accounts.models import CustomUser
 class FileSerializer(serializers.ModelSerializer):
     class Meta:
         model = File
-        fields = '__all__'
+        fields = ('id', 'name', 'file')
 
 class BaseSerializer(serializers.ModelSerializer):
     files = FileSerializer(source='file_set', many=True)
     class Meta:
         model = Base
-        fields = ('id', 'name', 'location', 'files')
+        fields = ('name', 'id', 'location', 'files')
+        ordering = ('-name',)
 
 class UserSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)

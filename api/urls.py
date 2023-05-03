@@ -3,7 +3,7 @@ from . import views
 
 urlpatterns = [
     path('file/', views.getFile),
-    path('base/', views.getBase),
+    path('base/', views.getBase.as_view()),
     path('base/add/', views.addBase),
     path('user/', views.getUser),
     path('user/add/', views.addUser.as_view()),

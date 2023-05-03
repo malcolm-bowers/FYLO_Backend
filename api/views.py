@@ -2,15 +2,18 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework.permissions import AllowAny
 from rest_framework import generics
+from rest_framework import filters
 from app.models import Base, File
 from accounts.models import CustomUser
 from .serializers import BaseSerializer, FileSerializer, UserSerializer
 
-@api_view(['GET'])
-def getBase(request):
-    bases = Base.objects.all()
-    serializer = BaseSerializer(bases, many=True)
-    return Response(serializer.data)
+class getBase(generics.ListAPIView):
+    queryset = Base.objects.all()
+    serializer_class = BaseSerializer
+    permission_classes = (AllowAny,)
+    filter_backends = [filters.OrderingFilter]
+    ordering = ['name']
+
 
 @api_view(['POST'])
 def addBase(request):
