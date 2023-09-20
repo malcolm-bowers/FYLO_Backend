@@ -1,0 +1,11 @@
+Capstone project for Campbell University - Information Technology, Security and Business Management.
+
+Completed in an eight week time period in conjuction with FYLO-Backend. 
+Additionally, fuctioned as a project manager during that timeframe.
+
+FYLO_Backend Task -
+Backend Web application in Django.
+
+FYLO_Backend Purpose -
+Host Army command standard operating proceedures, policies, and doctrine for easy mobile access and update by soldiers. 
+Allow for mobile access using JSON API.
